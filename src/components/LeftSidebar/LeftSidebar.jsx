@@ -13,7 +13,7 @@ import {
   updateDoc,
   where,
 } from "firebase/firestore";
-import { db } from "../../config/firebase";
+import { db, logout } from "../../config/firebase";
 import { AppContext } from "../../context/AppContext";
 import { toast } from "react-toastify";
 
@@ -27,7 +27,9 @@ const LeftSidebar = () => {
     setMessagesId,
     messagesId,
     chatVisible,
-    setChatVisible
+    setChatVisible,
+    profileVisible,
+    setProfileVisible
   } = useContext(AppContext);
   const [user, setUser] = useState(null);
   const [showSearch, setShowSearch] = useState(false);
@@ -141,10 +143,13 @@ const LeftSidebar = () => {
   },[chatData])
 
   return (
-    <div className={`ls max-[900px]:w-full ${chatVisible ? "max-[900px]:hidden" : ""} bg-[#001030] text-white h-[75vh]`}>
+    <div className={`ls max-[900px]:w-full ${chatVisible || profileVisible ? "max-[900px]:hidden" : ""} bg-[#001030] text-white h-[75vh]`}>
       <div className="ls-top p-[20px] ">
         <div className="ls-nav flex justify-between items-center">
-          <img className="max-w-[140px]" src={assets.logo} alt="" />
+          <div className="max-w-[140px] flex items-center gap-2">
+          <img className="max-w-[35px]" src={assets.logo} alt="" />
+          <h2 className="text-xl">ChatHive</h2>
+          </div>
           <div className="menu group relative py-[10px] px-[0px]">
             <img
               className="max-h-[20px] opacity-[0.6] cursor-pointer"
@@ -159,7 +164,7 @@ const LeftSidebar = () => {
                 Edit Profile
               </p>
               <hr className="border-none h-[1px] bg-[#a4a4a4] my-[8px] mx-[0px]" />
-              <p className="cursor-pointer text-[14px]">Logout</p>
+              <p onClick={()=>logout()} className="cursor-pointer text-[14px]">Logout</p>
             </div>
           </div>
         </div>
@@ -177,7 +182,7 @@ const LeftSidebar = () => {
         {showSearch && user ? (
           <div
             onClick={addChat}
-            className="add-user friends flex items-center gap-[10px] py-[10px] px-[20px] cursor-pointer text-[13px] hover:bg-[#077EFF] group"
+            className="add-user friends flex items-center gap-[10px] py-[10px] px-[20px] cursor-pointer text-[13px] hover:bg-[#940c70] group"
           >
             <img
               className="w-[35px] aspect-square rounded-full"
@@ -191,7 +196,7 @@ const LeftSidebar = () => {
             <div
               onClick={() => setChat(item)}
               key={index}
-              className={`friends flex items-center gap-[10px] py-[10px] px-[20px] cursor-pointer text-[13px] hover:bg-[#077EFF] group `}
+              className={`friends flex items-center gap-[10px] py-[10px] px-[20px] cursor-pointer text-[13px] hover:bg-[#940c70] group `}
             >
               <img
                 className={`w-[35px] aspect-square rounded-full ${

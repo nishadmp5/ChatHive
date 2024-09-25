@@ -5,7 +5,7 @@ import { AppContext } from '../../context/AppContext'
 
 const RightSidebar = () => {
 
-  const {chatUser,messages} = useContext(AppContext);
+  const {chatUser,messages,chatVisible,setChatVisible,profileVisible,setProfileVisible} = useContext(AppContext);
   const [msgImages,setMsgImages] = useState([]);
 
   useEffect(()=>{
@@ -19,8 +19,9 @@ const RightSidebar = () => {
   },[messages])
 
   return chatUser ? (
-    <div className='rs max-[900px]:hidden text-white bg-[#001030] relative h-[75vh] overflow-y-scroll'>
-        <div className="rs-profile pt-[60px] text-center max-w-[70%] m-auto">
+    <div className={`rs ${profileVisible ? "" : "max-[900px]:hidden" } text-white bg-[#001030] relative h-[75vh] overflow-y-scroll`}>
+     <img onClick={()=>{setChatVisible(true);setProfileVisible(false)}} className='arrow hidden max-lg:block w-[25px] ml-3 mt-2' src={assets.arrow_icon} alt="" />
+        <div className="rs-profile pt-[60px] max-[900px]:pt-3 text-center max-w-[70%] m-auto">
             <img className='w-[110px] aspect-square rounded-full mx-auto' src={chatUser.userData.avatar} alt="" />
             <h3 className='text-[18px] font-[400] flex items-center justify-center gap-[5px] mx-[0] my-[5px]'>{chatUser.userData.name}{Date.now() - chatUser.userData.lastSeen <= 70000 ?  <img className='w-[15px]' src={assets.green_dot} alt="" /> : null }</h3>
             <p className='text-[10px] opacity-[80%] font-[300]'>{chatUser.userData.bio}</p>
@@ -32,20 +33,14 @@ const RightSidebar = () => {
               {msgImages.map((url,index)=>(
                 <img onClick={()=> window.open(url)} key={index} src={url} alt="" />
               ))}
-                {/* <img className='w-[60px] rounded-[4px] cursor-pointer' src={assets.pic1} alt="" />
-                <img className='w-[60px] rounded-[4px] cursor-pointer' src={assets.pic2} alt="" />
-                <img className='w-[60px] rounded-[4px] cursor-pointer' src={assets.pic3} alt="" />
-                <img className='w-[60px] rounded-[4px] cursor-pointer' src={assets.pic4} alt="" />
-                <img className='w-[60px] rounded-[4px] cursor-pointer' src={assets.pic1} alt="" />
-                <img className='w-[60px] rounded-[4px] cursor-pointer' src={assets.pic2} alt="" /> */}
             </div>
         </div>
-        <button onClick={()=>logout()} className='absolute bottom-[20px] right-[50%] translate-x-2/4 bg-[#077eff] text-white border-none text-[12px] font-[300] py-[10px] px-[65px] rounded-[20px] cursor-pointer'>Logout</button>
+        <button onClick={()=>logout()} className='absolute bottom-[20px] right-[50%] translate-x-2/4 bg-[#610f87] text-white border-none text-[12px] font-[300] py-[10px] px-[65px] rounded-[20px] cursor-pointer'>Logout</button>
     </div>
   )
   : (
     <div className='rs  max-[900px]:hidden text-white bg-[#001030] relative h-[75vh] overflow-y-scroll'>
-      <button onClick={()=>logout()} className='absolute bottom-[20px] right-[50%] translate-x-2/4 bg-[#077eff] text-white border-none text-[12px] font-[300] py-[10px] px-[65px] rounded-[20px] cursor-pointer'>Logout</button>
+      <button onClick={()=>logout()} className='absolute bottom-[20px] right-[50%] translate-x-2/4 bg-[#610f87] text-white border-none text-[12px] font-[300] py-[10px] px-[65px] rounded-[20px] cursor-pointer'>Logout</button>
     </div>
   )
 }

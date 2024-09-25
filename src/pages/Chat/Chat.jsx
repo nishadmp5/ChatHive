@@ -16,7 +16,7 @@ const Chat = () => {
   },[chatData,userData])
 
   return (
-    <div className='chat  min-h-[100vh] bg-gradient-to-t from-[#596AFF] to-[#383699] grid place-items-center'>
+    <div className='chat  min-h-[100vh] bg-gradient-to-t from-[#940c70] to-[#383699] grid place-items-center'>
       {
         loading
         ? <p className='loading max-[900px]:text-[30px] text-[50px] text-white'>Loading...</p>

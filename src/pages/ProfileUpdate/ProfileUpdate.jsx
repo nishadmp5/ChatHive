@@ -71,7 +71,7 @@ const ProfileUpdate = () => {
     },[])
 
   return (
-    <div className='profile min-h-screen max-h-screen bg-[url(background.png)] bg-no-repeat flex items-center justify-center'>
+    <div className='profile min-h-screen max-h-screen bg-[#610f87] bg-no-repeat flex items-center justify-center'>
         <div className="profile-container bg-white flex max-md:flex-col-reverse items-center justify-between w-full max-w-[700px] rounded-[10px]">
             <form onSubmit={profileUpdate} className='flex flex-col gap-[20px] p-[40px]'>
                 <h3 className='font-medium'>Profile Details</h3>
@@ -80,9 +80,9 @@ const ProfileUpdate = () => {
                     <img className='w-[50px] aspect-square rounded-[50%]' src={image ? URL.createObjectURL(image) : assets.avatar_icon} alt="" />
                     {prevImage ? "Update profile picture" : "Upload profile image"}
                 </label>
-                <input onChange={(e) => setName(e.target.value)} value={name} className='p-[10px] min-w-[300px] border border-solid border-[#c9c9c9] outline-[#077eff]' type="text" placeholder='Your name' required/>
-                <textarea onChange={(e) => setBio(e.target.value)} value={bio} className='p-[10px] min-w-[300px] border border-solid border-[#c9c9c9] outline-[#077eff]' placeholder='Write profile bio' required></textarea>
-                <button className='border-none text-white bg-[#077eff] p-[8px] text-[16px] cursor-pointer' type='submit'>Save</button>
+                <input onChange={(e) => setName(e.target.value)} value={name} className='p-[10px] min-w-[300px] border border-solid border-[#c9c9c9] outline-[#610f87]' type="text" placeholder='Your name' required/>
+                <textarea onChange={(e) => setBio(e.target.value)} value={bio} className='p-[10px] min-w-[300px] border border-solid border-[#c9c9c9] outline-[#610f87]' placeholder='Write profile bio' required></textarea>
+                <button className='border-none text-white bg-[#610f87] p-[8px] text-[16px] cursor-pointer' type='submit'>Save</button>
             </form>
             <img className='profile-pic max-w-[160px] aspect-square my-[20px] mx-auto rounded-[50%]' src={image ? URL.createObjectURL(image) : prevImage ? prevImage : assets.logo_icon} alt="" />
         </div>

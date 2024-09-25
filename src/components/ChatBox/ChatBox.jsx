@@ -8,7 +8,7 @@ import upload from '../../lib/upload';
 
 const ChatBox = () => {
 
-    const {userData,messagesId,chatUser,messages,setMessages,chatVisible,setChatVisible} = useContext(AppContext);
+    const {userData,messagesId,chatUser,messages,setMessages,chatVisible,setChatVisible,profileVisible,setProfileVisible} = useContext(AppContext);
 
     const [input,setInput] = useState("");
 
@@ -114,9 +114,9 @@ const ChatBox = () => {
      },[messagesId])
 
   return chatUser ? (
-    <div className={`chat-box ${chatVisible ? "" : "max-[900px]:hidden"} h-[75vh] max-[900px]:w-full max-[900px]:justify-center relative bg-[#f1f5ff]`}>
+    <div className={`chat-box ${chatVisible && !profileVisible ? "" : profileVisible || !chatVisible ? "max-[900px]:hidden" : "" } h-[75vh] max-[900px]:w-full max-[900px]:justify-center relative bg-[#f1f5ff]`}>
         <div className="chat-user py-[10px] px-[15px] flex items-center gap-[10px] border-b-[1px] border-solid border-b-[#c6c6c6]">
-            <img className='w-[38px] aspect-square rounded-full' src={chatUser.userData.avatar} alt="" />
+            <img onClick={()=>{setProfileVisible(true); setChatVisible(false)}} className='w-[38px] aspect-square rounded-full' src={chatUser.userData.avatar} alt="" />
             <p className='flex font-medium flex-1 text-[20px] text-[#393939] items-center gap-[5px]'>{chatUser.userData.name} {Date.now() - chatUser.userData.lastSeen <= 70000 ?  <img className='w-[15px]' src={assets.green_dot} alt="" /> : null }</p>
             <img className='help max-[900px]:hidden w-[25px] rounded-full' src={assets.help_icon} alt="" />
             <img onClick={()=>setChatVisible(false)} className='arrow hidden max-lg:block w-[25px]' src={assets.arrow_icon} alt="" />
@@ -128,7 +128,7 @@ const ChatBox = () => {
 
                     {msg["image"]
                     ? <img className='msg-img max-w-[230px] mb-[30px] rounded-[10px]' src={msg.image}/>
-                    : <p className='msg text-white bg-[#077EFF] p-[8px] max-w-[200px] text-[11px] font-light rounded-t-lg rounded-es-lg  mb-[30px]'>{msg.text}</p>
+                    : <p className='msg text-white bg-[#610f87] p-[8px] max-w-[200px] text-[11px] font-light rounded-t-lg rounded-es-lg  mb-[30px]'>{msg.text}</p>
                     }
                 
                 <div className='text-center text-[9px]'>
@@ -151,7 +151,7 @@ const ChatBox = () => {
   )
   : <div className={`chat-welcome ${chatVisible ? "" : "max-[900px]:hidden"} w-full flex flex-col items-center justify-center gap-[5px]`}>
     <img className='w-[60px]' src={assets.logo_icon} alt="" />
-    <p className='text-[20px] font-[500] text-[#383838]'>Chat anytime,anywhere</p>
+    <p className='text-[20px] font-[500] text-[#383838]'>Start chat with ChatHive</p>
   </div>
 }
 
