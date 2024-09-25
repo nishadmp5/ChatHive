@@ -25,7 +25,7 @@ const Login = () => {
     }
 
   return (
-    <div className="login relative min-h-[100vh] bg-[url('background-rep.jpg')] bg-no-repeat bg-cover flex flex-col md:flex-row items-center justify-center md:justify-evenly gap-[30px] md:gap-0">
+    <div className="login relative min-h-[100vh] bg-[url('/background-rep.jpg')] bg-no-repeat bg-cover flex flex-col md:flex-row items-center justify-center md:justify-evenly gap-[30px] md:gap-0">
         <div className='absolute inset-0 bg-gradient-to-br from-[#4d1369] to-[#940c70] opacity-80 z-0'> </div>
         <div style={{width: "max(20vw, 200px)"}}  className='z-10 flex flex-col items-center justify-center gap-2'>
          <img className='logo z-10' style={{width: "max(20vw, 200px)"}} src={assets.logo_big} alt="" />
