@@ -141,11 +141,11 @@ const ChatBox = () => {
 
         <div className="chat-input flex items-center gap-[12px] py-[10px] px-[15px] bg-white absolute bottom-0 right-0 left-0">
             <input onChange={(e)=>setInput(e.target.value)} value={input} className='flex-1 border-none outline-none' type="text" placeholder='Send a message' />
-            <input onChange={sendImage} className=' border-none outline-none' type="file" id='image' accept='image/png, image/jpeg' hidden/>
+            <input onChange={sendImage} className='flex-1 border-none outline-none' type="file" id='image' accept='image/png, image/jpeg' hidden/>
             <label className='flex' htmlFor="image">
-                <img className='max-w-[22px]' src={assets.gallery_icon} alt="" />
+                <img className='w-[22px]' src={assets.gallery_icon} alt="" />
             </label>
-            <img onClick={sendMessage} className='max-w-[30px] cursor-pointer' src={assets.send_button} alt="" />
+            <img onClick={sendMessage} className='w-[30px] cursor-pointer' src={assets.send_button} alt="" />
         </div>
     </div>
   )
