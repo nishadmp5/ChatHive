@@ -143,9 +143,9 @@ const ChatBox = () => {
             <input onChange={(e)=>setInput(e.target.value)} value={input} className='flex-1 border-none outline-none' type="text" placeholder='Send a message' />
             <input onChange={sendImage} className=' border-none outline-none' type="file" id='image' accept='image/png, image/jpeg' hidden/>
             <label className='flex' htmlFor="image">
-                <img className='min-w-[22px]' src={assets.gallery_icon} alt="" />
+                <img className='max-w-[22px]' src={assets.gallery_icon} alt="" />
             </label>
-            <img onClick={sendMessage} className='w-[30px] cursor-pointer' src={assets.send_button} alt="" />
+            <img onClick={sendMessage} className='max-w-[30px] cursor-pointer' src={assets.send_button} alt="" />
         </div>
     </div>
   )
