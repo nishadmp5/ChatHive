@@ -19,7 +19,7 @@ const RightSidebar = () => {
   },[messages])
 
   return chatUser ? (
-    <div className={`rs ${profileVisible ? "" : "max-[900px]:hidden" } text-white bg-[#001030] relative h-[75vh] overflow-y-scroll`}>
+    <div className={`rs ${profileVisible ? "" : "max-[900px]:hidden" } text-white bg-[#001030] relative h-full overflow-y-scroll`}>
      <img onClick={()=>{setChatVisible(true);setProfileVisible(false)}} className='arrow hidden max-lg:block w-[25px] ml-3 mt-2' src={assets.arrow_icon} alt="" />
         <div className="rs-profile pt-[60px] max-[900px]:pt-3 text-center max-w-[70%] m-auto">
             <img className='w-[110px] aspect-square rounded-full mx-auto' src={chatUser.userData.avatar} alt="" />
@@ -39,7 +39,7 @@ const RightSidebar = () => {
     </div>
   )
   : (
-    <div className='rs  max-[900px]:hidden text-white bg-[#001030] relative h-[75vh] overflow-y-scroll'>
+    <div className='rs  max-[900px]:hidden text-white bg-[#001030] relative h-full overflow-y-scroll'>
       <button onClick={()=>logout()} className='absolute bottom-[20px] right-[50%] translate-x-2/4 bg-[#610f87] text-white border-none text-[12px] font-[300] py-[10px] px-[65px] rounded-[20px] cursor-pointer'>Logout</button>
     </div>
   )

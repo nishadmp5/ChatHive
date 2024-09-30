@@ -71,7 +71,7 @@ const ProfileUpdate = () => {
     },[])
 
   return (
-    <div className='profile min-h-screen max-h-screen bg-[#610f87] bg-no-repeat flex items-center justify-center'>
+    <div className='profile min-h-screen max-h-screen bg-[#610f87] bg-no-repeat flex items-center justify-center overflow-hidden'>
         <div className="profile-container bg-white flex max-md:flex-col-reverse items-center justify-between w-full max-w-[700px] rounded-[10px]">
             <form onSubmit={profileUpdate} className='flex flex-col gap-[20px] p-[40px]'>
                 <h3 className='font-medium'>Profile Details</h3>

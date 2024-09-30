@@ -143,7 +143,7 @@ const LeftSidebar = () => {
   },[chatData])
 
   return (
-    <div className={`ls max-[900px]:w-full ${chatVisible || profileVisible ? "max-[900px]:hidden" : ""} bg-[#001030] text-white h-[75vh]`}>
+    <div className={`ls max-[900px]:w-full ${chatVisible || profileVisible ? "max-[900px]:hidden" : ""} bg-[#001030] text-white h-full`}>
       <div className="ls-top p-[20px] ">
         <div className="ls-nav flex justify-between items-center">
           <div className="max-w-[140px] flex items-center gap-2">

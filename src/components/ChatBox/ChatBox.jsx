@@ -114,7 +114,7 @@ const ChatBox = () => {
      },[messagesId])
 
   return chatUser ? (
-    <div className={`chat-box ${chatVisible && !profileVisible ? "" : profileVisible || !chatVisible ? "max-[900px]:hidden" : "" } h-[75vh] max-[900px]:w-full max-[900px]:justify-center relative bg-[#f1f5ff]`}>
+    <div className={`chat-box ${chatVisible && !profileVisible ? "" : profileVisible || !chatVisible ? "max-[900px]:hidden" : "" } h-screen max-[900px]:w-full max-[900px]:justify-center relative bg-[#f1f5ff]`}>
         <div className="chat-user py-[10px] px-[15px] flex items-center gap-[10px] border-b-[1px] border-solid border-b-[#c6c6c6]">
             <img onClick={()=>{setProfileVisible(true); setChatVisible(false)}} className='w-[38px] aspect-square rounded-full' src={chatUser.userData.avatar} alt="" />
             <p className='flex font-medium flex-1 text-[20px] text-[#393939] items-center gap-[5px]'>{chatUser.userData.name} {Date.now() - chatUser.userData.lastSeen <= 70000 ?  <img className='w-[15px]' src={assets.green_dot} alt="" /> : null }</p>

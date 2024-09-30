@@ -20,7 +20,7 @@ const Chat = () => {
       {
         loading
         ? <p className='loading max-[900px]:text-[30px] text-[50px] text-white'>Loading...</p>
-        :  <div style={{gridTemplateColumns: "1fr 2fr 1fr"}} className="chat-container max-[900px]:flex w-[95%] h-[75vh] max-w-[1000px] bg-[aliceblue] grid ">
+        :  <div style={{gridTemplateColumns: "1fr 2fr 1fr"}} className="chat-container max-[900px]:flex w-screen h-screen overflow-hidden  bg-[aliceblue] grid ">
            <LeftSidebar/>
             <ChatBox/>
            <RightSidebar/>
